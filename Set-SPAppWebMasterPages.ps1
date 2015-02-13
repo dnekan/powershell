@@ -34,4 +34,3 @@ process {
 	   Write-Host -ForegroundColor Red $Error[0].ToString();
 	}
   }
-}

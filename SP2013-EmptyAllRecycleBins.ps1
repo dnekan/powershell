@@ -4,7 +4,7 @@
 	.DESCRIPTION
 		# Completely empties all recycle bins within an entire site collection (stage 1 and stage 2)
 	.EXAMPLE
-		NMDOH - Deploy CHILEnet Branding Solution.ps1 -siteUrl http://FullSiteUrl
+		SP2013-EmptyRecycleBins.ps1 -siteUrl http://FullSiteUrl
 	.INPUTS
 		siteUrl:  full path to a site collection
 	.OUTPUTS

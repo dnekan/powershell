@@ -7,12 +7,12 @@ $rss = (new-object net.webclient)
 # Grab the RSS feed for the MP4 downloads
 
 # Ignite 2015 Videos and Slides
-$a = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp4high")) 
-$b = ([xml]$rss.downloadstring("http://channel9.msdn.com/Events/ignite/2015/rss/slides")) 
+$videos = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp4high")) 
+$slides = ([xml]$rss.downloadstring("http://channel9.msdn.com/Events/ignite/2015/rss/slides")) 
 
 #other qualities for the videos only. Choose the one you want!
-# $a = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp4")) 
-#$a = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp3")) 
+#$videos = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp4")) 
+#$videos = ([xml]$rss.downloadstring("http://channel9.msdn.com/events/ignite/2015/rss/mp3")) 
 
 #Preferably enter something not too long to not have filename problems! cut and paste them afterwards
 $downloadlocation = "C:\Ignite"
@@ -25,7 +25,7 @@ set-location $downloadlocation
 
 #Download all the slides	
 try {
-	$b.rss.channel.item | foreach {   
+	$slides.rss.channel.item | foreach {   
 		$code = $_.comments.split("/") | select -last 1	   
 		
 		# Grab the URL for the PPTX file
@@ -72,7 +72,8 @@ Write-host "Slides are not yet up. Run this script every day to get the latest u
 #download all the mp4
 
 # Walk through each item in the feed 
-$a.rss.channel.item | foreach {   
+
+$videos.rss.channel.item | foreach {   
 	$code = $_.comments.split("/") | select -last 1	   
 	
 	# Grab the URL for the MP4 file

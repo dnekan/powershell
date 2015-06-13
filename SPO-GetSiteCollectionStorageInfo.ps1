@@ -1,7 +1,14 @@
+#Originally written by Jeff Jones (@spjeff) and posted here:  http://www.spjeff.com/2015/05/18/office-365-monitor-site-collection-storage-ps1-daily-email/.
+
+#Updated by Eric Skaggs
+#Minor update to avoid divideByZero error
+#Minor update to add parameters
+
 Param( 
 		[string]$spoAdminUrl = "$(Read-Host 'Enter the SharePoint Online admin URL')",
 		[string]$spoAdminUser = "$(Read-Host 'Enter the user name of a SharePoint Online Administrator')"
-	)
+)
+
 # Plugin
 Import-Module Microsoft.Online.SharePoint.PowerShell -ErrorAction SilentlyContinue
 	

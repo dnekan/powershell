@@ -42,7 +42,7 @@ foreach ($c in $coll) {
 }
 $html += "</tr></tbody></table>"
 
-$html | Out-File O365-Tenant-Storage-Report.html
+$html | Out-File SPO-Tenant-Storage-Report.html
 
 # Send email
 # Send-MailMessage -To $user -From $user -Subject "Office 365 Storage" -Body $html -BodyAsHtml -SmtpServer $smtp

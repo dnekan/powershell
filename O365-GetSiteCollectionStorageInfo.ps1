@@ -2,8 +2,8 @@
 Import-Module Microsoft.Online.SharePoint.PowerShell -ErrorAction SilentlyContinue
 
 # Config -- get URL from "Tenant Admin" page in Office 365
-$url	= "https://cat-admin.sharepoint.com"
-$user	= "eric.skaggs@catapultsystems.com"
+$url	= "https://TenantName-admin.sharepoint.com"
+$user	= "admin@domain.com"
 # $smtp	= "mailrelay"
 	
 # Connect
@@ -36,7 +36,7 @@ foreach ($c in $coll) {
 }
 $html += "</tr></tbody></table>"
 
-$html | Out-File O-365-Tenant-Storage-Report.html
+$html | Out-File O365-Tenant-Storage-Report.html
 
 # Send email
 # Send-MailMessage -To $user -From $user -Subject "Office 365 Storage" -Body $html -BodyAsHtml -SmtpServer $smtp

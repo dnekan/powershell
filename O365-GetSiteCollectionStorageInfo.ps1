@@ -1,13 +1,12 @@
+Param( 
+		[string]$spoAdminUrl = "$(Read-Host 'Enter the SharePoint Online admin URL')",
+		[string]$spoAdminUser = "$(Read-Host 'Enter the user name of a SharePoint Online Administrator')"
+	)
 # Plugin
 Import-Module Microsoft.Online.SharePoint.PowerShell -ErrorAction SilentlyContinue
-
-# Config -- get URL from "Tenant Admin" page in Office 365
-$url	= "https://TenantName-admin.sharepoint.com"
-$user	= "admin@domain.com"
-# $smtp	= "mailrelay"
 	
 # Connect
-Connect-SPOService -url $url -credential $user
+Connect-SPOService -url $spoAdminUrl -credential $spoAdminUser
 
 # Gather data
 $sites = Get-SPOSite -Detailed

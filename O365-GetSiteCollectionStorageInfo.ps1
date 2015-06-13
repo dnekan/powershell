@@ -2,9 +2,12 @@
 Import-Module Microsoft.Online.SharePoint.PowerShell -ErrorAction SilentlyContinue
 
 # Config -- get URL from "Tenant Admin" page in Office 365
-$url	= "https://company-admin.sharepoint.com"
-$user	= "admin@company.com"
+$url	= "https://cat-admin.sharepoint.com"
+$user	= "eric.skaggs@catapultsystems.com"
 # $smtp	= "mailrelay"
+	
+# Connect
+Connect-SPOService -url $url -credential $user
 
 # Gather data
 $sites = Get-SPOSite -Detailed

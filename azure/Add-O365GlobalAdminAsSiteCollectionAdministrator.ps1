@@ -11,6 +11,6 @@
     ForEach ($url in $sites.Url)                        
     {            
         Set-SPOUser -Site $url -LoginName $adminLoginName -IsSiteCollectionAdmin $True                        
-        Write-Output "Added to - " + $url
+        Write-Output "Added to $url"
     }
 }
